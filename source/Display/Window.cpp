@@ -18,4 +18,9 @@ namespace Display
 	{
 		return 1.0;
 	}
+	
+	void Window::set_cursor(Cursor cursor)
+	{
+		_cursor = cursor;
+	}
 }

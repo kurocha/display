@@ -30,6 +30,14 @@ namespace Display
 		bool fullscreen = false;
 	};
 	
+	enum class Cursor : std::uint8_t {
+		// Hide the mouse cursor and constrain its input to the current window.
+		HIDDEN = 0,
+		
+		// Display the cursor normally.
+		NORMAL = 1,
+	};
+	
 	class Window : public Input::Handler
 	{
 	public:
@@ -44,10 +52,14 @@ namespace Display
 		// Hide the window.
 		virtual void hide() = 0;
 		
+		virtual void set_cursor(Cursor cursor);
+		Cursor cursor() const noexcept {return _cursor;}
+		
 		// The scale a pixel w.r.t. the physical display.
 		virtual Scale scale() const;
 		
 	protected:
 		Layout _layout;
+		Cursor _cursor = Cursor::NORMAL;
 	};
 }
