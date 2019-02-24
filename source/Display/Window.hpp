@@ -15,6 +15,8 @@
 
 #include <Geometry/Box.hpp>
 
+#include <string>
+
 namespace Display
 {
 	using Scale = float;
