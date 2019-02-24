@@ -36,6 +36,8 @@ namespace Display
 		Window(const Application & application, const Layout & layout = Layout()) : _layout(layout) {}
 		virtual ~Window();
 		
+		const Layout & layout() const noexcept {return _layout;}
+		
 		// Show the window.
 		virtual void show() = 0;
 		
