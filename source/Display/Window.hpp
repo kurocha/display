@@ -13,14 +13,27 @@
 #include <Time/Interval.hpp>
 #include <Input/Handler.hpp>
 
+#include <Geometry/Box.hpp>
+
 namespace Display
 {
 	using Scale = float;
 	
+	struct Layout
+	{
+		Layout() {}
+		Layout(const Numerics::Vec2 & size) : bounds({0, 0}, size) {}
+		
+		Geometry::Box2 bounds = {{0, 0}, {640, 480}};
+		
+		bool center = true;
+		bool fullscreen = false;
+	};
+	
 	class Window : public Input::Handler
 	{
 	public:
-		Window(const Application & application) {}
+		Window(const Application & application, const Layout & layout = Layout()) : _layout(layout) {}
 		virtual ~Window();
 		
 		// Show the window.
@@ -31,5 +44,8 @@ namespace Display
 		
 		// The scale a pixel w.r.t. the physical display.
 		virtual Scale scale() const;
+		
+	protected:
+		Layout _layout;
 	};
 }
