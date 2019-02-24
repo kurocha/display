@@ -52,6 +52,9 @@ namespace Display
 		// Hide the window.
 		virtual void hide() = 0;
 		
+		virtual void set_title(const std::string & title);
+		const std::string & title() const noexcept {return _title;}
+		
 		virtual void set_cursor(Cursor cursor);
 		Cursor cursor() const noexcept {return _cursor;}
 		
@@ -60,6 +63,7 @@ namespace Display
 		
 	protected:
 		Layout _layout;
+		std::string _title;
 		Cursor _cursor = Cursor::NORMAL;
 	};
 }

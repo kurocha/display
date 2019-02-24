@@ -19,6 +19,11 @@ namespace Display
 		return 1.0;
 	}
 	
+	void Window::set_title(const std::string & title)
+	{
+		_title = title;
+	}
+	
 	void Window::set_cursor(Cursor cursor)
 	{
 		_cursor = cursor;
