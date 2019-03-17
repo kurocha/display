@@ -8,6 +8,8 @@
 
 #include "Window.hpp"
 
+#include <Input/FocusEvent.hpp>
+
 namespace Display
 {
 	Window::~Window()
@@ -17,6 +19,15 @@ namespace Display
 	Scale Window::scale() const
 	{
 		return 1.0;
+	}
+	
+	bool Window::process(const Input::FocusEvent & event)
+	{
+		if (event.flags() & Input::FocusEvent::CLOSED) {
+			this->hide();
+		}
+		
+		return true;
 	}
 	
 	void Window::set_title(const std::string & title)
