@@ -24,7 +24,7 @@ namespace Display
 	bool Window::process(const Input::FocusEvent & event)
 	{
 		if (event.flags() & Input::FocusEvent::CLOSED) {
-			this->hide();
+			this->close();
 		}
 		
 		return true;

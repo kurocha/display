@@ -54,6 +54,9 @@ namespace Display
 		// Hide the window.
 		virtual void hide() = 0;
 		
+		// Close the window.
+		virtual void close() = 0;
+		
 		bool process(const Input::FocusEvent & event) override;
 		
 		virtual void set_title(const std::string & title);
