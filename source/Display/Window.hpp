@@ -57,6 +57,7 @@ namespace Display
 		// Close the window.
 		virtual void close() = 0;
 		
+		using Input::Handler::process;
 		bool process(const Input::FocusEvent & event) override;
 		
 		virtual void set_title(const std::string & title);
